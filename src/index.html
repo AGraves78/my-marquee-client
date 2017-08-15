@@ -8,7 +8,17 @@
 </head>
 <body>
   <div ng-controller='MainController as ctrl'>
-    {{ ctrl.message }}
+    <section>
+      <header>
+        <p>{{ ctrl.movieData[0].title }}</p>
+        <img src="https://placehold.it/110x150" />
+        <p>{{ ctrl.movieData[0].release_date | date:'yyyy' }}</p>
+      </header>
+      <main>
+        <p>{{ ctrl.movieData[0].overview }}</p>
+      </main>
+    </section>
+    <pre>{{ ctrl.movieData | json }}</pre>
   </div>
 </body>
 </html>

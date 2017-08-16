@@ -1,14 +1,18 @@
 const angular = require('angular');
-const movieData = require('../mocks/movie-search.json');
 
+//services
+const MovieService = require('./services/movie.service');
+
+//application
 angular.module('my-marquee-client', []);
 
 angular.module('my-marquee-client')
-       .controller('MainController', MainController);
+       .controller('MainController', MainController)
+       .factory('MovieService', MovieService);
 
-MainController.$inject = [];
+MainController.$inject = ['MovieService'];
 
-function MainController(){
+function MainController(movie){
   this.message = 'hello from angular';
-  this.movieData = movieData.results;
+  this.movieData = movie.getMovieResults();
 }

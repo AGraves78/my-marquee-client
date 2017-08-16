@@ -57,6 +57,13 @@ module.exports = {
 					],
 					fallback: 'style-loader'
 				})
+			},
+			{
+				test: /\.html$/,
+				loader: 'html-loader',
+				options: {
+					minimize: true
+				}
 			}
 		]
 	},

@@ -3,16 +3,12 @@ const angular = require('angular');
 //services
 const MovieService = require('./services/movie.service');
 
+//components
+const MovieSearchComponent = require('./components/movie-search/index');
+
 //application
 angular.module('my-marquee-client', []);
 
 angular.module('my-marquee-client')
-       .controller('MainController', MainController)
-       .factory('MovieService', MovieService);
-
-MainController.$inject = ['MovieService'];
-
-function MainController(movie){
-  this.message = 'hello from angular';
-  this.movieData = movie.getMovieResults();
-}
+       .factory('MovieService', MovieService)
+       .component('movieSearch', MovieSearchComponent);

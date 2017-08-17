@@ -1,10 +1,15 @@
 MainController.$inject = ['MovieService'];
 
-function MainController(movie){
-  this.message = 'hello from angular';
+function MainController(movies){
+  this.movie = '';
 
-  movie.getMovieResults('Jack Reacher')
-       .then(movieSearch => this.movieData = movieSearch);
+  this.search = function search(){
+    console.log('searching....');
+    console.log(this.movie);
+
+    movies.getMovieResults(this.movie)
+         .then(movieSearch => this.movieData = movieSearch);
+  };
 }
 
 module.exports = MainController;

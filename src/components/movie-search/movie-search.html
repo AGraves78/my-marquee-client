@@ -1,11 +1,26 @@
 <section>
-  <header>
-    <p>{{ $ctrl.movieData[0].title }}</p>
-    <img src="https://placehold.it/110x150" />
-    <p>{{ $ctrl.movieData[0].release_date | date:'yyyy' }}</p>
-  </header>
-  <main>
-    <p>{{ $ctrl.movieData[0].overview }}</p>
-  </main>
+  <div>
+    <label>Enter movie title:</label>
+    <input type="text" ng-model='$ctrl.movie' />
+  </div>
+  <div>
+    <button type="button" ng-click='$ctrl.search()'>Search</button>
+  </div>
 </section>
-<pre>{{ $ctrl.movieData | json }}</pre>
+<section ng-if='$ctrl.movieData'>
+  <ul>
+    <li>
+      <div>
+        <header>
+          <p>{{ $ctrl.movieData[0].title }}</p>
+          <img src="https://placehold.it/110x150" />
+          <p>{{ $ctrl.movieData[0].release_date | date:'yyyy' }}</p>
+        </header>
+        <main>
+          <p>{{ $ctrl.movieData[0].overview }}</p>
+        </main>
+      </div>
+    </li>
+  </ul>
+</section>
+<!-- <pre>{{ $ctrl.movieData | json }}</pre> -->
